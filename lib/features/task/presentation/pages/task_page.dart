@@ -8,6 +8,7 @@ import 'package:seek/features/task/data/models/task_model.dart';
 import 'package:seek/features/task/presentation/bloc/task_bloc.dart';
 import 'package:seek/features/task/presentation/widgets/alert_form_widget.dart';
 import 'package:seek/features/task/presentation/widgets/filter_widget.dart';
+import 'package:seek/features/task/presentation/widgets/info_widget.dart';
 import 'package:seek/features/task/presentation/widgets/search_widget.dart';
 import 'package:seek/features/task/presentation/widgets/task_list_item_widget.dart';
 import 'package:animation_list/animation_list.dart';
@@ -105,6 +106,7 @@ class _TaskPageState extends State<TaskPage>
                   ),
                 ],
               ),
+              const InfoWidget(),
               Expanded(
                 child: AnimationList(
                     key: UniqueKey(),
