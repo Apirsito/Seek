@@ -34,15 +34,6 @@ Se requiere desarrollar una aplicación de lista de tareas utilizando Flutter qu
 - Considera la modularidad y reutilización del código.
 - Proporciona comentarios en el código donde sea necesario.
 
-## Duración del Reto
-
-El reto debe ser entregado máximo 48 horas luego de haber recibido el reto por email.
-
-## Entregables
-
-- Repositorio de GitHub con el código fuente.
-- APK o URL donde bajar el APK para instalarlo en un celular Android y poder usar la app (se podría desplegar incluso a través de Firebase App Tester).
-
 
 ## Pasos para correr el proyecto
 
