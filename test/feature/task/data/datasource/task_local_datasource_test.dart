@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -30,8 +31,10 @@ void main() {
 
   test('Agregar tarea a la base de datos.', () async {
     // Configurar el comportamiento del mock del helper de base de datos
-    when(mockDatabaseHelper.insertTask(any)).thenAnswer((_) async => null);
-    when(mockDatabaseHelper.getAllTasks()).thenAnswer((_) async => tTaskList);
+    when(mockDatabaseHelper.insertTask(any))
+        .thenAnswer((_) async => const Right(null));
+    when(mockDatabaseHelper.getAllTasks())
+        .thenAnswer((_) async => Right(tTaskList));
 
     // Ejecutar el método del data source
     final result = await dataSource.addTask(tTaskModel);
@@ -43,13 +46,15 @@ void main() {
     verify(mockDatabaseHelper.getAllTasks());
 
     // Verificar que el resultado sea el esperado
-    expect(result, tTaskList);
+    expect(result, Right(tTaskList));
   });
 
   test('Remover tarea de la base de datos.', () async {
     // Configurar el comportamiento del mock del helper de base de datos
-    when(mockDatabaseHelper.deleteTask(any)).thenAnswer((_) async => null);
-    when(mockDatabaseHelper.getAllTasks()).thenAnswer((_) async => tTaskList);
+    when(mockDatabaseHelper.deleteTask(any))
+        .thenAnswer((_) async => const Right(null));
+    when(mockDatabaseHelper.getAllTasks())
+        .thenAnswer((_) async => Right(tTaskList));
 
     // Ejecutar el método del data source
     final result = await dataSource.removeTask(tTaskModel);
@@ -61,12 +66,13 @@ void main() {
     verify(mockDatabaseHelper.getAllTasks());
 
     // Verificar que el resultado sea el esperado
-    expect(result, tTaskList);
+    expect(result, Right(tTaskList));
   });
 
   test('Listar tareas de la base de datos.', () async {
     // Configurar el comportamiento del mock del helper de base de datos
-    when(mockDatabaseHelper.getAllTasks()).thenAnswer((_) async => tTaskList);
+    when(mockDatabaseHelper.getAllTasks())
+        .thenAnswer((_) async => Right(tTaskList));
 
     // Ejecutar el método del data source
     final result = await dataSource.getListTask();
@@ -75,13 +81,15 @@ void main() {
     verify(mockDatabaseHelper.getAllTasks());
 
     // Verificar que el resultado sea el esperado
-    expect(result, tTaskList);
+    expect(result, Right(tTaskList));
   });
 
   test('Editar tareas de la base de datos.', () async {
     // Configurar el comportamiento del mock del helper de base de datos
-    when(mockDatabaseHelper.updateTask(any)).thenAnswer((_) async => null);
-    when(mockDatabaseHelper.getAllTasks()).thenAnswer((_) async => tTaskList);
+    when(mockDatabaseHelper.updateTask(any))
+        .thenAnswer((_) async => const Right(null));
+    when(mockDatabaseHelper.getAllTasks())
+        .thenAnswer((_) async => Right(tTaskList));
 
     // Ejecutar el método del data source
     final result = await dataSource.editTask(tTaskModel);
@@ -93,6 +101,6 @@ void main() {
     verify(mockDatabaseHelper.getAllTasks());
 
     // Verificar que el resultado sea el esperado
-    expect(result, tTaskList);
+    expect(result, Right(tTaskList));
   });
 }

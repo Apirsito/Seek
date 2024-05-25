@@ -1,7 +1,7 @@
 class ErrorModel {
-  String title;
-  String description;
-  ErrorModel({
+  final String title;
+  final String description;
+  const ErrorModel({
     required this.title,
     required this.description,
   });

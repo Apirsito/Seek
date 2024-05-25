@@ -3,12 +3,14 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i3;
+import 'dart:async' as _i4;
 
+import 'package:dartz/dartz.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:seek/features/task/data/models/task_model.dart' as _i4;
+import 'package:seek/core/models/error_model.dart' as _i5;
+import 'package:seek/features/task/data/models/task_model.dart' as _i6;
 import 'package:seek/features/task/domain/repositories/task_repository.dart'
-    as _i2;
+    as _i3;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -23,50 +25,96 @@ import 'package:seek/features/task/domain/repositories/task_repository.dart'
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
+class _FakeEither_0<L, R> extends _i1.SmartFake implements _i2.Either<L, R> {
+  _FakeEither_0(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [TaskRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockTaskRepository extends _i1.Mock implements _i2.TaskRepository {
+class MockTaskRepository extends _i1.Mock implements _i3.TaskRepository {
   MockTaskRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i3.Future<List<_i4.TaskModel>> listTask() => (super.noSuchMethod(
+  _i4.Future<_i2.Either<_i5.ErrorModel, List<_i6.TaskModel>>> listTask() =>
+      (super.noSuchMethod(
         Invocation.method(
           #listTask,
           [],
         ),
-        returnValue: _i3.Future<List<_i4.TaskModel>>.value(<_i4.TaskModel>[]),
-      ) as _i3.Future<List<_i4.TaskModel>>);
+        returnValue:
+            _i4.Future<_i2.Either<_i5.ErrorModel, List<_i6.TaskModel>>>.value(
+                _FakeEither_0<_i5.ErrorModel, List<_i6.TaskModel>>(
+          this,
+          Invocation.method(
+            #listTask,
+            [],
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.ErrorModel, List<_i6.TaskModel>>>);
 
   @override
-  _i3.Future<List<_i4.TaskModel>> addTask(_i4.TaskModel? task) =>
+  _i4.Future<_i2.Either<_i5.ErrorModel, List<_i6.TaskModel>>> addTask(
+          _i6.TaskModel? task) =>
       (super.noSuchMethod(
         Invocation.method(
           #addTask,
           [task],
         ),
-        returnValue: _i3.Future<List<_i4.TaskModel>>.value(<_i4.TaskModel>[]),
-      ) as _i3.Future<List<_i4.TaskModel>>);
+        returnValue:
+            _i4.Future<_i2.Either<_i5.ErrorModel, List<_i6.TaskModel>>>.value(
+                _FakeEither_0<_i5.ErrorModel, List<_i6.TaskModel>>(
+          this,
+          Invocation.method(
+            #addTask,
+            [task],
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.ErrorModel, List<_i6.TaskModel>>>);
 
   @override
-  _i3.Future<List<_i4.TaskModel>> deleteTask(_i4.TaskModel? task) =>
+  _i4.Future<_i2.Either<_i5.ErrorModel, List<_i6.TaskModel>>> deleteTask(
+          _i6.TaskModel? task) =>
       (super.noSuchMethod(
         Invocation.method(
           #deleteTask,
           [task],
         ),
-        returnValue: _i3.Future<List<_i4.TaskModel>>.value(<_i4.TaskModel>[]),
-      ) as _i3.Future<List<_i4.TaskModel>>);
+        returnValue:
+            _i4.Future<_i2.Either<_i5.ErrorModel, List<_i6.TaskModel>>>.value(
+                _FakeEither_0<_i5.ErrorModel, List<_i6.TaskModel>>(
+          this,
+          Invocation.method(
+            #deleteTask,
+            [task],
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.ErrorModel, List<_i6.TaskModel>>>);
 
   @override
-  _i3.Future<List<_i4.TaskModel>> succesTask(_i4.TaskModel? task) =>
+  _i4.Future<_i2.Either<_i5.ErrorModel, List<_i6.TaskModel>>> succesTask(
+          _i6.TaskModel? task) =>
       (super.noSuchMethod(
         Invocation.method(
           #succesTask,
           [task],
         ),
-        returnValue: _i3.Future<List<_i4.TaskModel>>.value(<_i4.TaskModel>[]),
-      ) as _i3.Future<List<_i4.TaskModel>>);
+        returnValue:
+            _i4.Future<_i2.Either<_i5.ErrorModel, List<_i6.TaskModel>>>.value(
+                _FakeEither_0<_i5.ErrorModel, List<_i6.TaskModel>>(
+          this,
+          Invocation.method(
+            #succesTask,
+            [task],
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.ErrorModel, List<_i6.TaskModel>>>);
 }

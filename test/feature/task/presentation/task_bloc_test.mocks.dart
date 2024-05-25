@@ -3,18 +3,20 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i3;
+import 'dart:async' as _i4;
 
+import 'package:dartz/dartz.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:seek/features/task/data/models/task_model.dart' as _i4;
+import 'package:seek/core/models/error_model.dart' as _i5;
+import 'package:seek/features/task/data/models/task_model.dart' as _i6;
 import 'package:seek/features/task/domain/usecases/add_task_usecase.dart'
-    as _i5;
-import 'package:seek/features/task/domain/usecases/delete_task_usecase.dart'
-    as _i6;
-import 'package:seek/features/task/domain/usecases/list_task_usecase.dart'
-    as _i2;
-import 'package:seek/features/task/domain/usecases/succes_task_usecase.dart'
     as _i7;
+import 'package:seek/features/task/domain/usecases/delete_task_usecase.dart'
+    as _i8;
+import 'package:seek/features/task/domain/usecases/list_task_usecase.dart'
+    as _i3;
+import 'package:seek/features/task/domain/usecases/succes_task_usecase.dart'
+    as _i9;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -29,77 +31,123 @@ import 'package:seek/features/task/domain/usecases/succes_task_usecase.dart'
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
+class _FakeEither_0<L, R> extends _i1.SmartFake implements _i2.Either<L, R> {
+  _FakeEither_0(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [ListTaskUseCase].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockListTaskUseCase extends _i1.Mock implements _i2.ListTaskUseCase {
+class MockListTaskUseCase extends _i1.Mock implements _i3.ListTaskUseCase {
   MockListTaskUseCase() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i3.Future<List<_i4.TaskModel>> execute() => (super.noSuchMethod(
+  _i4.Future<_i2.Either<_i5.ErrorModel, List<_i6.TaskModel>>> execute() =>
+      (super.noSuchMethod(
         Invocation.method(
           #execute,
           [],
         ),
-        returnValue: _i3.Future<List<_i4.TaskModel>>.value(<_i4.TaskModel>[]),
-      ) as _i3.Future<List<_i4.TaskModel>>);
+        returnValue:
+            _i4.Future<_i2.Either<_i5.ErrorModel, List<_i6.TaskModel>>>.value(
+                _FakeEither_0<_i5.ErrorModel, List<_i6.TaskModel>>(
+          this,
+          Invocation.method(
+            #execute,
+            [],
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.ErrorModel, List<_i6.TaskModel>>>);
 }
 
 /// A class which mocks [AddTaskUseCase].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockAddTaskUseCase extends _i1.Mock implements _i5.AddTaskUseCase {
+class MockAddTaskUseCase extends _i1.Mock implements _i7.AddTaskUseCase {
   MockAddTaskUseCase() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i3.Future<List<_i4.TaskModel>> execute(_i4.TaskModel? parameter) =>
+  _i4.Future<_i2.Either<_i5.ErrorModel, List<_i6.TaskModel>>> execute(
+          _i6.TaskModel? parameter) =>
       (super.noSuchMethod(
         Invocation.method(
           #execute,
           [parameter],
         ),
-        returnValue: _i3.Future<List<_i4.TaskModel>>.value(<_i4.TaskModel>[]),
-      ) as _i3.Future<List<_i4.TaskModel>>);
+        returnValue:
+            _i4.Future<_i2.Either<_i5.ErrorModel, List<_i6.TaskModel>>>.value(
+                _FakeEither_0<_i5.ErrorModel, List<_i6.TaskModel>>(
+          this,
+          Invocation.method(
+            #execute,
+            [parameter],
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.ErrorModel, List<_i6.TaskModel>>>);
 }
 
 /// A class which mocks [DeleteTaskUseCase].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockDeleteTaskUseCase extends _i1.Mock implements _i6.DeleteTaskUseCase {
+class MockDeleteTaskUseCase extends _i1.Mock implements _i8.DeleteTaskUseCase {
   MockDeleteTaskUseCase() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i3.Future<List<_i4.TaskModel>> execute(_i4.TaskModel? parameter) =>
+  _i4.Future<_i2.Either<_i5.ErrorModel, List<_i6.TaskModel>>> execute(
+          _i6.TaskModel? parameter) =>
       (super.noSuchMethod(
         Invocation.method(
           #execute,
           [parameter],
         ),
-        returnValue: _i3.Future<List<_i4.TaskModel>>.value(<_i4.TaskModel>[]),
-      ) as _i3.Future<List<_i4.TaskModel>>);
+        returnValue:
+            _i4.Future<_i2.Either<_i5.ErrorModel, List<_i6.TaskModel>>>.value(
+                _FakeEither_0<_i5.ErrorModel, List<_i6.TaskModel>>(
+          this,
+          Invocation.method(
+            #execute,
+            [parameter],
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.ErrorModel, List<_i6.TaskModel>>>);
 }
 
 /// A class which mocks [SuccesTaskUseCase].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockSuccesTaskUseCase extends _i1.Mock implements _i7.SuccesTaskUseCase {
+class MockSuccesTaskUseCase extends _i1.Mock implements _i9.SuccesTaskUseCase {
   MockSuccesTaskUseCase() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i3.Future<List<_i4.TaskModel>> execute(_i4.TaskModel? parameter) =>
+  _i4.Future<_i2.Either<_i5.ErrorModel, List<_i6.TaskModel>>> execute(
+          _i6.TaskModel? parameter) =>
       (super.noSuchMethod(
         Invocation.method(
           #execute,
           [parameter],
         ),
-        returnValue: _i3.Future<List<_i4.TaskModel>>.value(<_i4.TaskModel>[]),
-      ) as _i3.Future<List<_i4.TaskModel>>);
+        returnValue:
+            _i4.Future<_i2.Either<_i5.ErrorModel, List<_i6.TaskModel>>>.value(
+                _FakeEither_0<_i5.ErrorModel, List<_i6.TaskModel>>(
+          this,
+          Invocation.method(
+            #execute,
+            [parameter],
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.ErrorModel, List<_i6.TaskModel>>>);
 }

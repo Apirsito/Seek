@@ -5,11 +5,13 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i4;
 
+import 'package:dartz/dartz.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
+import 'package:seek/core/models/error_model.dart' as _i5;
 import 'package:seek/features/task/data/datasources/task_database_helper.dart'
     as _i3;
-import 'package:seek/features/task/data/models/task_model.dart' as _i5;
-import 'package:sqflite/sqflite.dart' as _i2;
+import 'package:seek/features/task/data/models/task_model.dart' as _i7;
+import 'package:sqflite/sqflite.dart' as _i6;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -24,8 +26,8 @@ import 'package:sqflite/sqflite.dart' as _i2;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
-class _FakeDatabase_0 extends _i1.SmartFake implements _i2.Database {
-  _FakeDatabase_0(
+class _FakeEither_0<L, R> extends _i1.SmartFake implements _i2.Either<L, R> {
+  _FakeEither_0(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -44,50 +46,85 @@ class MockTaskDatabaseHelper extends _i1.Mock
   }
 
   @override
-  _i4.Future<_i2.Database> get database => (super.noSuchMethod(
+  _i4.Future<_i2.Either<_i5.ErrorModel, _i6.Database>> get database =>
+      (super.noSuchMethod(
         Invocation.getter(#database),
-        returnValue: _i4.Future<_i2.Database>.value(_FakeDatabase_0(
+        returnValue: _i4.Future<_i2.Either<_i5.ErrorModel, _i6.Database>>.value(
+            _FakeEither_0<_i5.ErrorModel, _i6.Database>(
           this,
           Invocation.getter(#database),
         )),
-      ) as _i4.Future<_i2.Database>);
+      ) as _i4.Future<_i2.Either<_i5.ErrorModel, _i6.Database>>);
 
   @override
-  _i4.Future<void> insertTask(_i5.TaskModel? task) => (super.noSuchMethod(
+  _i4.Future<_i2.Either<_i5.ErrorModel, void>> insertTask(
+          _i7.TaskModel? task) =>
+      (super.noSuchMethod(
         Invocation.method(
           #insertTask,
           [task],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i4.Future<_i2.Either<_i5.ErrorModel, void>>.value(
+            _FakeEither_0<_i5.ErrorModel, void>(
+          this,
+          Invocation.method(
+            #insertTask,
+            [task],
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.ErrorModel, void>>);
 
   @override
-  _i4.Future<List<_i5.TaskModel>> getAllTasks() => (super.noSuchMethod(
+  _i4.Future<_i2.Either<_i5.ErrorModel, List<_i7.TaskModel>>> getAllTasks() =>
+      (super.noSuchMethod(
         Invocation.method(
           #getAllTasks,
           [],
         ),
-        returnValue: _i4.Future<List<_i5.TaskModel>>.value(<_i5.TaskModel>[]),
-      ) as _i4.Future<List<_i5.TaskModel>>);
+        returnValue:
+            _i4.Future<_i2.Either<_i5.ErrorModel, List<_i7.TaskModel>>>.value(
+                _FakeEither_0<_i5.ErrorModel, List<_i7.TaskModel>>(
+          this,
+          Invocation.method(
+            #getAllTasks,
+            [],
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.ErrorModel, List<_i7.TaskModel>>>);
 
   @override
-  _i4.Future<void> updateTask(_i5.TaskModel? task) => (super.noSuchMethod(
+  _i4.Future<_i2.Either<_i5.ErrorModel, void>> updateTask(
+          _i7.TaskModel? task) =>
+      (super.noSuchMethod(
         Invocation.method(
           #updateTask,
           [task],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i4.Future<_i2.Either<_i5.ErrorModel, void>>.value(
+            _FakeEither_0<_i5.ErrorModel, void>(
+          this,
+          Invocation.method(
+            #updateTask,
+            [task],
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.ErrorModel, void>>);
 
   @override
-  _i4.Future<void> deleteTask(_i5.TaskModel? task) => (super.noSuchMethod(
+  _i4.Future<_i2.Either<_i5.ErrorModel, void>> deleteTask(
+          _i7.TaskModel? task) =>
+      (super.noSuchMethod(
         Invocation.method(
           #deleteTask,
           [task],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i4.Future<_i2.Either<_i5.ErrorModel, void>>.value(
+            _FakeEither_0<_i5.ErrorModel, void>(
+          this,
+          Invocation.method(
+            #deleteTask,
+            [task],
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.ErrorModel, void>>);
 }

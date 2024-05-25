@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:seek/core/models/error_model.dart';
 import 'package:seek/features/task/data/models/task_model.dart';
 import 'package:seek/features/task/domain/usecases/add_task_usecase.dart';
 import 'package:seek/features/task/domain/usecases/delete_task_usecase.dart';
@@ -36,37 +37,59 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
   }
 
   //Listar tareas.
-  FutureOr<void> _listTask(ListTaskEvent event, Emitter<TaskState> emit) async {
-    List<TaskModel> listTask = await _listTaskUseCase.execute();
-    emit(state.copyWith(
+  Future<void> _listTask(ListTaskEvent event, Emitter<TaskState> emit) async {
+    final result = await _listTaskUseCase.execute();
+    result.fold(
+      (error) => emit(state.copyWith(status: TaskStatus.error, error: error)),
+      (listTask) => emit(state.copyWith(
         taskList: listTask,
         taskListFiltered: listTask,
         filterValue: -1,
-        status: TaskStatus.succes));
+        status: TaskStatus.succes,
+      )),
+    );
   }
 
   //Agregar tarea.
-  FutureOr<void> _addTask(AddTaskEvent event, Emitter<TaskState> emit) async {
-    List<TaskModel> listTask = await _addTaskUseCase.execute(event.task);
-    emit(state.copyWith(
-        taskList: listTask, taskListFiltered: listTask, filterValue: -1));
+  Future<void> _addTask(AddTaskEvent event, Emitter<TaskState> emit) async {
+    final result = await _addTaskUseCase.execute(event.task);
+    result.fold(
+      (error) => emit(state.copyWith(status: TaskStatus.error, error: error)),
+      (listTask) => emit(state.copyWith(
+        taskList: listTask,
+        taskListFiltered: listTask,
+        filterValue: -1,
+      )),
+    );
   }
 
   //Remover tarea.
-  FutureOr<void> _deleteTask(
+  Future<void> _deleteTask(
       DeleteTaskEvent event, Emitter<TaskState> emit) async {
-    List<TaskModel> listTask = await _deleteTaskUseCase.execute(event.task);
-    emit(state.copyWith(
-        taskList: listTask, taskListFiltered: listTask, filterValue: -1));
+    final result = await _deleteTaskUseCase.execute(event.task);
+    result.fold(
+      (error) => emit(state.copyWith(status: TaskStatus.error, error: error)),
+      (listTask) => emit(state.copyWith(
+        taskList: listTask,
+        taskListFiltered: listTask,
+        filterValue: -1,
+      )),
+    );
   }
 
   //Completar tarea.
-  FutureOr<void> _succesTask(
+  Future<void> _succesTask(
       SuccesTaskEvent event, Emitter<TaskState> emit) async {
     event.task.isComplete = 1;
-    List<TaskModel> listTask = await _succesTaskUseCase.execute(event.task);
-    emit(state.copyWith(
-        taskList: listTask, taskListFiltered: listTask, filterValue: -1));
+    final result = await _succesTaskUseCase.execute(event.task);
+    result.fold(
+      (error) => emit(state.copyWith(status: TaskStatus.error, error: error)),
+      (listTask) => emit(state.copyWith(
+        taskList: listTask,
+        taskListFiltered: listTask,
+        filterValue: -1,
+      )),
+    );
   }
 
   //Filtrar tarea.

@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -58,7 +59,8 @@ void main() {
       ];
 
       // Configurar el comportamiento del mock del caso de uso ListTaskUseCase.
-      when(mockListTaskUseCase.execute()).thenAnswer((_) async => tTaskList);
+      when(mockListTaskUseCase.execute())
+          .thenAnswer((_) async => Right(tTaskList));
 
       // Emitir el evento ListTaskEvent.
       taskBloc.add(const ListTaskEvent());
@@ -88,7 +90,8 @@ void main() {
         description: 'New Description',
         isComplete: 0,
       );
-      when(mockAddTaskUseCase.execute(any)).thenAnswer((_) async => tTaskList);
+      when(mockAddTaskUseCase.execute(any))
+          .thenAnswer((_) async => Right(tTaskList));
 
       taskBloc.add(AddTaskEvent(task: tTaskToAdd));
 
@@ -117,7 +120,7 @@ void main() {
         isComplete: 0,
       );
       when(mockDeleteTaskUseCase.execute(any))
-          .thenAnswer((_) async => tTaskList);
+          .thenAnswer((_) async => Right(tTaskList));
 
       taskBloc.add(DeleteTaskEvent(task: tTaskToDelete));
 
@@ -146,7 +149,7 @@ void main() {
         isComplete: 0, // Task incomplete
       );
       when(mockSuccesTaskUseCase.execute(any))
-          .thenAnswer((_) async => tTaskList);
+          .thenAnswer((_) async => Right(tTaskList));
 
       taskBloc.add(SuccesTaskEvent(task: tTaskToComplete));
 
@@ -223,8 +226,8 @@ void main() {
     });
 
     test('Emitir estado cuando cambie la variable de la animacion.', () async {
-      final tValueX = 1000.0;
-      taskBloc.add(ChangeValueAnimationX(valueX: tValueX));
+      const tValueX = 1000.0;
+      taskBloc.add(const ChangeValueAnimationX(valueX: tValueX));
 
       await expectLater(
         taskBloc.stream,

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:seek/core/dependency_injection/dependency_injection.dart';
-import 'package:seek/core/utils/app_colors.dart';
 import 'package:seek/features/task/presentation/pages/task_page.dart';
 import 'features/task/presentation/bloc/task_bloc.dart';
 

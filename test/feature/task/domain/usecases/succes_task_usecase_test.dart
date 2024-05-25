@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -30,14 +31,18 @@ void main() {
 
   test('Marcar tarea como realizada.', () async {
     // Configurar el comportamiento del mock.
-    when(mockTaskRepository.succesTask(any)).thenAnswer((_) async => tTaskList);
+    when(mockTaskRepository.succesTask(any))
+        .thenAnswer((_) async => Right(tTaskList));
 
     // Ejecutar el caso de uso.
     final result = await succesTaskUseCase.execute(tTaskModel);
 
     // Verificar el resultado.
-    expect(result, tTaskList);
-    verify(mockTaskRepository.succesTask(tTaskModel));
+    result.fold(
+      (error) => fail('No se esperaba un error: $error'),
+      (taskList) => expect(taskList, tTaskList),
+    );
+    verify(mockTaskRepository.succesTask(tTaskModel)).called(1);
     verifyNoMoreInteractions(mockTaskRepository);
   });
 }

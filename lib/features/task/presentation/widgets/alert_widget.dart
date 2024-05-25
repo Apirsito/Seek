@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:seek/core/utils/app_colors.dart';
 import 'package:seek/core/utils/utlis.dart';

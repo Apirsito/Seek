@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:seek/core/models/error_model.dart';
 import 'package:seek/core/utils/app_colors.dart';
 import 'package:seek/features/task/data/models/task_model.dart';
 import 'package:seek/features/task/presentation/bloc/task_bloc.dart';
@@ -31,8 +32,11 @@ class _TaskPageState extends State<TaskPage> {
       ),
       body: BlocBuilder<TaskBloc, TaskState>(builder: (context, state) {
         if (state.status == TaskStatus.initial) {
-          context.read<TaskBloc>().add(ListTaskEvent());
+          context.read<TaskBloc>().add(const ListTaskEvent());
           return const Center(child: CircularProgressIndicator());
+        }
+        if (state.status == TaskStatus.error) {
+          _showErrorAlert(context, state.error);
         }
         if (state.status == TaskStatus.succes) {
           return Column(
@@ -91,18 +95,38 @@ class _TaskPageState extends State<TaskPage> {
             color: Colors.white,
           ),
           onPressed: () {
-            _mostrarAlerta(context);
+            _showAlertAddTask(context);
           }),
     );
   }
 
-  void _mostrarAlerta(BuildContext context) {
+  void _showAlertAddTask(BuildContext context) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertWidget(continueAction: (TaskModel task) {
           context.read<TaskBloc>().add(AddTaskEvent(task: task));
         });
+      },
+    );
+  }
+
+  void _showErrorAlert(BuildContext context, ErrorModel error) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Error'),
+          content: Text(error.description),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        );
       },
     );
   }

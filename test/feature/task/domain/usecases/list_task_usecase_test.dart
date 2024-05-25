@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -31,13 +32,14 @@ void main() {
 
   test('Listar tarea', () async {
     // Configurar el comportamiento del mock.
-    when(mockTaskRepository.listTask()).thenAnswer((_) async => tTaskList);
+    when(mockTaskRepository.listTask())
+        .thenAnswer((_) async => Right(tTaskList));
 
     // Ejecutar el caso de uso.
     final result = await listTaskUseCase.execute();
 
     // Verificar el resultado.
-    expect(result, tTaskList);
+    expect(result, Right(tTaskList));
     verify(mockTaskRepository.listTask());
     verifyNoMoreInteractions(mockTaskRepository);
   });

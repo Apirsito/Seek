@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -30,7 +31,8 @@ void main() {
 
   test('Agregar tarea', () async {
     // Configurar el comportamiento del mock del data source.
-    when(mockLocalDataSource.addTask(any)).thenAnswer((_) async => tTaskList);
+    when(mockLocalDataSource.addTask(any))
+        .thenAnswer((_) async => Right(tTaskList));
 
     // Ejecutar el método del repositorio
     final result = await taskRepositoryImpl.addTask(tTaskModel);
@@ -39,13 +41,13 @@ void main() {
     verify(mockLocalDataSource.addTask(tTaskModel));
 
     // Verificar que el resultado sea el esperado.
-    expect(result, tTaskList);
+    expect(result, Right(tTaskList));
   });
 
   test('Eliminar tarea', () async {
     // Configurar el comportamiento del mock del data source.
     when(mockLocalDataSource.removeTask(any))
-        .thenAnswer((_) async => tTaskList);
+        .thenAnswer((_) async => Right(tTaskList));
 
     // Ejecutar el método del repositorio.
     final result = await taskRepositoryImpl.deleteTask(tTaskModel);
@@ -54,12 +56,13 @@ void main() {
     verify(mockLocalDataSource.removeTask(tTaskModel));
 
     // Verificar que el resultado sea el esperado.
-    expect(result, tTaskList);
+    expect(result, Right(tTaskList));
   });
 
   test('Listar tareas', () async {
     // Configurar el comportamiento del mock del data source.
-    when(mockLocalDataSource.getListTask()).thenAnswer((_) async => tTaskList);
+    when(mockLocalDataSource.getListTask())
+        .thenAnswer((_) async => Right(tTaskList));
 
     // Ejecutar el método del repositorio.
     final result = await taskRepositoryImpl.listTask();
@@ -68,12 +71,13 @@ void main() {
     verify(mockLocalDataSource.getListTask());
 
     // Verificar que el resultado sea el esperado.
-    expect(result, tTaskList);
+    expect(result, Right(tTaskList));
   });
 
   test('Marcar tarea como exitosa', () async {
     // Configurar el comportamiento del mock del data source.
-    when(mockLocalDataSource.editTask(any)).thenAnswer((_) async => tTaskList);
+    when(mockLocalDataSource.editTask(any))
+        .thenAnswer((_) async => Right(tTaskList));
 
     // Ejecutar el método del repositorio.
     final result = await taskRepositoryImpl.succesTask(tTaskModel);
@@ -82,6 +86,6 @@ void main() {
     verify(mockLocalDataSource.editTask(tTaskModel));
 
     // Verificar que el resultado sea el esperado.
-    expect(result, tTaskList);
+    expect(result, Right(tTaskList));
   });
 }

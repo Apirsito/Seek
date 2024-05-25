@@ -16,14 +16,14 @@ class TaskListItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
       padding: const EdgeInsets.all(16),
       margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: task.isComplete == 0
               ? const Color.fromARGB(255, 255, 255, 255)
-              : Color.fromARGB(255, 221, 247, 222),
+              : const Color.fromARGB(255, 221, 247, 222),
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.5), // Color de la sombra
@@ -41,7 +41,7 @@ class TaskListItemWidget extends StatelessWidget {
               children: [
                 Text(
                   task.title,
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Text(task.description),
               ],
@@ -55,7 +55,7 @@ class TaskListItemWidget extends StatelessWidget {
                       color: Colors.green,
                       onPressed: onEditTap,
                     )
-                  : SizedBox(),
+                  : const SizedBox(),
               IconButton(
                 icon: const Icon(Icons.delete),
                 onPressed: onDeleteTap,

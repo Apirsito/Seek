@@ -14,6 +14,7 @@ class TaskState extends Equatable {
   final double valueX;
   final int filterValue;
   final String searchValue;
+  final ErrorModel error;
 
   const TaskState({
     this.taskList = const [],
@@ -22,11 +23,19 @@ class TaskState extends Equatable {
     this.valueX = 0,
     this.filterValue = -1,
     this.searchValue = "",
+    this.error = const ErrorModel(title: "", description: ""),
   });
 
   @override
-  List<Object?> get props =>
-      [taskList, taskListFiltered, status, valueX, filterValue, searchValue];
+  List<Object?> get props => [
+        taskList,
+        taskListFiltered,
+        status,
+        valueX,
+        filterValue,
+        searchValue,
+        error
+      ];
 
   TaskState copyWith({
     List<TaskModel>? taskList,
@@ -35,6 +44,7 @@ class TaskState extends Equatable {
     double? valueX,
     int? filterValue,
     String? searchValue,
+    ErrorModel? error,
   }) {
     return TaskState(
       taskList: taskList ?? this.taskList,
@@ -43,6 +53,7 @@ class TaskState extends Equatable {
       valueX: valueX ?? this.valueX,
       filterValue: filterValue ?? this.filterValue,
       searchValue: searchValue ?? this.searchValue,
+      error: error ?? this.error,
     );
   }
 }
