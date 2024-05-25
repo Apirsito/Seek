@@ -75,3 +75,18 @@ Esta estructura ayuda a mantener el código organizado y facilita la escalabilid
 
    - El archivo .jks se encuentra dentro de android/app/upload-keystore.jks
    
+## Capturas de Pantalla
+
+![Captura de pantalla 1](screenshots/1.jpeg)
+
+![Captura de pantalla 2](screenshots/2.jpeg)
+
+![Captura de pantalla 1](screenshots/3.jpeg)
+
+![Captura de pantalla 2](screenshots/4.jpeg)
+
+![Captura de pantalla 1](screenshots/5.jpeg)
+
+![Captura de pantalla 2](screenshots/6.jpeg)
+
+![Captura de pantalla 1](screenshots/7.jpeg)
