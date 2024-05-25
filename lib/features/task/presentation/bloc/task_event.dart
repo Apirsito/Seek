@@ -41,8 +41,3 @@ class SearchTaskEvent extends TaskEvent {
       required this.listTaskFull,
       required this.filterValue});
 }
-
-class ChangeValueAnimationX extends TaskEvent {
-  final double valueX;
-  const ChangeValueAnimationX({required this.valueX});
-}

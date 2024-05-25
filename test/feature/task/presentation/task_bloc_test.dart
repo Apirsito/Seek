@@ -224,17 +224,5 @@ void main() {
         ]),
       );
     });
-
-    test('Emitir estado cuando cambie la variable de la animacion.', () async {
-      const tValueX = 1000.0;
-      taskBloc.add(const ChangeValueAnimationX(valueX: tValueX));
-
-      await expectLater(
-        taskBloc.stream,
-        emitsInOrder([
-          isA<TaskState>().having((state) => state.valueX, 'valueX', tValueX)
-        ]),
-      );
-    });
   });
 }

@@ -33,7 +33,6 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
     on<SuccesTaskEvent>(_succesTask);
     on<FilterTaskEvent>(_filterTask);
     on<SearchTaskEvent>(_searchTask);
-    on<ChangeValueAnimationX>(_changeValueX);
   }
 
   //Listar tareas.
@@ -112,16 +111,15 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
   //buscar tarea.
   FutureOr<void> _searchTask(
       SearchTaskEvent event, Emitter<TaskState> emit) async {
+    List<TaskModel> listFiltered = [];
+    if (event.filterValue != -1) {
+      listFiltered = event.listTaskFull
+          .where((task) => task.isComplete == event.filterValue)
+          .toList();
+    } else {
+      listFiltered = event.listTaskFull;
+    }
     if (event.value != "") {
-      List<TaskModel> listFiltered = [];
-      if (event.filterValue != -1) {
-        listFiltered = event.listTaskFull
-            .where((task) => task.isComplete == event.filterValue)
-            .toList();
-      } else {
-        listFiltered = event.listTaskFull;
-      }
-
       List<TaskModel> listSearch = listFiltered
           .where((task) =>
               task.title.toLowerCase().contains(event.value.toLowerCase()) ||
@@ -134,12 +132,7 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
           taskListFiltered: listSearch, searchValue: event.value));
     } else {
       emit(state.copyWith(
-          taskListFiltered: state.taskList, searchValue: event.value));
+          taskListFiltered: listFiltered, searchValue: event.value));
     }
-  }
-
-  FutureOr<void> _changeValueX(
-      ChangeValueAnimationX event, Emitter<TaskState> emit) {
-    emit(state.copyWith(valueX: event.valueX));
   }
 }
