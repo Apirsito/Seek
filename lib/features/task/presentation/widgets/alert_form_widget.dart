@@ -37,7 +37,7 @@ class AlertFormWidget extends StatelessWidget {
           ),
           TextFormField(
             decoration: const InputDecoration(
-              hintText: 'Descripcion',
+              hintText: 'descripción',
             ),
             onChanged: (String descriptionInput) {
               // Actualiza el valor del correo electrónico.

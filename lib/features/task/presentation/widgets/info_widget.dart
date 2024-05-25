@@ -11,13 +11,13 @@ class InfoWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "Aqui podras obtener toda la informacion de tus tareas",
+            "Aquí podrás obtener toda la información de tus tareas",
             textAlign: TextAlign.center,
             style: TextStyle(
                 fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
           ),
           Text(
-            "Podras agregar, eliminar, marcar como realizada, buscar y filtrar.",
+            "Podrás agregar, eliminar, marcar como realizada, buscar y filtrar.",
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.white),
           )
