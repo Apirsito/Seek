@@ -32,7 +32,7 @@ class TaskListItemWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         color: task.isComplete == 0
             ? Colors.white
-            : const Color.fromARGB(255, 144, 255, 147),
+            : const Color.fromARGB(255, 19, 173, 135),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
