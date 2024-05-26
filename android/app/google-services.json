@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "517351588302",
+    "project_id": "seek-e4592",
+    "storage_bucket": "seek-e4592.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:517351588302:android:5b4cc6d2eee43ffaa72b9f",
+        "android_client_info": {
+          "package_name": "com.example.seek"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgBk-dGWEu4_le1WQpObRk22SohIwO2NY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

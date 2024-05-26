@@ -1,3 +1,13 @@
+
+# Url para usar por app tester
+
+- **Solicitar permisos para poner como verificadores.**
+- <https://appdistribution.firebase.google.com/testerapps/1:517351588302:android:5b4cc6d2eee43ffaa72b9f/releases/79ap6ssli6odg?utm_source=firebase-console>
+
+# Url para descargar por drive
+
+- <https://drive.google.com/file/d/112z2xsBJ28DchEdiqGHGd5Efzhh6fsdD/view?usp=sharing>
+
 # Aplicación de Lista de Tareas - Flutter
 
 Este proyecto es una aplicación de lista de tareas desarrollada en Flutter como parte del Reto de Automatización para la posición de Mobile Developer.
